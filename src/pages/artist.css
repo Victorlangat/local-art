@@ -517,3 +517,75 @@
     }
   }
   
+  /* Add these to your existing artist.css */
+
+@media (max-width: 768px) {
+  .artists-hero {
+    padding: 4rem 0 3rem;
+  }
+  
+  .artists-title {
+    font-size: 2.5rem;
+  }
+  
+  .controls-container {
+    padding: 0 1rem;
+  }
+  
+  .artists-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .artist-card {
+    padding: 2rem;
+  }
+  
+  .artist-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .artist-stats {
+    justify-content: center;
+  }
+  
+  .artist-actions {
+    flex-direction: column;
+  }
+  
+  .community-benefits {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .artists-title {
+    font-size: 2rem;
+  }
+  
+  .artist-card {
+    padding: 1.5rem;
+  }
+  
+  .artist-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+  
+  .artist-name {
+    font-size: 1.4rem;
+  }
+  
+  .search-input {
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 1rem;
+  }
+  
+  .category-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
