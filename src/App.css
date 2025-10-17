@@ -1,0 +1,72 @@
+/* Add these to your existing App.css */
+
+/* Current page indicator */
+.current-page-indicator {
+  font-size: 0.9rem;
+  color: #adb5bd;
+  margin-top: 0.5rem;
+}
+
+.current-page-indicator strong {
+  color: #4361ee;
+}
+
+/* Active page styling in footer */
+.footer-link.current-page {
+  color: #4361ee !important;
+  font-weight: 600;
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Main content area adjustments */
+.main-content {
+  flex: 1;
+  background: var(--neutral-light);
+  position: relative;
+}
+
+/* Ensure proper CSS variables */
+:root {
+  --container-max-width: 1200px;
+  --neutral-light: #f8fafc;
+  --primary-blue: #4361ee;
+  --primary-purple: #7209b7;
+  --accent-pink: #f72585;
+  --accent-teal: #06d6a0;
+  --neutral-white: #ffffff;
+  --neutral-gray: #64748b;
+  --neutral-dark: #0f172a;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.08);
+  --shadow-floating: 0 20px 60px rgba(67, 97, 238, 0.08);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive adjustments for multi-page layout */
+@media (max-width: 768px) {
+  .current-page-indicator {
+    font-size: 0.8rem;
+  }
+}

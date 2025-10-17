@@ -1,0 +1,437 @@
+/* gallery.css - Sleek Gallery Styles */
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+    --gallery-spacing: 2rem;
+    --card-radius: 20px;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* ===== GALLERY HERO ===== */
+  .gallery-page {
+    background: var(--neutral-light);
+    min-height: 100vh;
+  }
+  
+  .gallery-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6rem 0 4rem;
+    text-align: center;
+  }
+  
+  .gallery-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .gallery-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+  
+  .gallery-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* ===== GALLERY CONTROLS ===== */
+  .gallery-controls {
+    background: var(--neutral-white);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 2rem 0;
+    position: sticky;
+    top: 64px;
+    z-index: 40;
+  }
+  
+  .controls-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .filter-label {
+    font-weight: 600;
+    color: var(--neutral-dark);
+    white-space: nowrap;
+  }
+  
+  .category-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .category-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    background: var(--neutral-white);
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+  }
+  
+  .category-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  
+  .category-btn.active {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+  }
+  
+  .sort-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .sort-label {
+    font-weight: 600;
+    color: var(--neutral-dark);
+    white-space: nowrap;
+  }
+  
+  .sort-select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: var(--neutral-white);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    min-width: 180px;
+  }
+  
+  .sort-select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+  }
+  
+  /* ===== ARTWORKS GRID ===== */
+  .artworks-section {
+    padding: 4rem 0;
+  }
+  
+  .artworks-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .artworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .artwork-card {
+    background: var(--neutral-white);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+  
+  .artwork-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-floating);
+  }
+  
+  .artwork-image {
+    position: relative;
+    background: var(--gradient-card);
+    padding: 3rem;
+    text-align: center;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+  }
+  
+  .featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--accent-pink);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .artwork-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition-smooth);
+  }
+  
+  .artwork-card:hover .artwork-overlay {
+    opacity: 1;
+  }
+  
+  .quick-view-btn {
+    background: white;
+    color: var(--neutral-dark);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+  
+  .quick-view-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  .artwork-info {
+    padding: 2rem;
+  }
+  
+  .artwork-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--neutral-dark);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  
+  .artwork-artist {
+    color: var(--primary-purple);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .artwork-category {
+    color: var(--neutral-gray);
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+  
+  .artwork-description {
+    color: var(--neutral-gray);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .artwork-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .artwork-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-pink);
+  }
+  
+  .artwork-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .view-details-btn {
+    padding: 0.75rem 1.25rem;
+    background: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+  }
+  
+  .view-details-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+  }
+  
+  .add-to-cart-btn {
+    padding: 0.75rem 1.25rem;
+    background: var(--accent-teal);
+    color: var(--neutral-dark);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+  }
+  
+  .add-to-cart-btn:hover {
+    background: #05c290;
+    transform: translateY(-2px);
+  }
+  
+  /* ===== EMPTY STATE ===== */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    grid-column: 1 / -1;
+  }
+  
+  .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+  }
+  
+  .empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--neutral-dark);
+    margin-bottom: 1rem;
+  }
+  
+  .empty-state p {
+    color: var(--neutral-gray);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* ===== GALLERY STATS ===== */
+  .gallery-stats {
+    background: var(--neutral-white);
+    padding: 4rem 0;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .stats-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  
+  .stat-label {
+    color: var(--neutral-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+  }
+  
+  /* ===== RESPONSIVE DESIGN ===== */
+  @media (max-width: 968px) {
+    .controls-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.5rem;
+    }
+    
+    .filter-group {
+      justify-content: center;
+    }
+    
+    .sort-group {
+      justify-content: center;
+    }
+    
+    .artworks-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-title {
+      font-size: 2.5rem;
+    }
+    
+    .category-filters {
+      justify-content: center;
+    }
+    
+    .artwork-footer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+    
+    .artwork-actions {
+      justify-content: space-between;
+    }
+    
+    .artworks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery-hero {
+      padding: 4rem 0 3rem;
+    }
+    
+    .gallery-title {
+      font-size: 2rem;
+    }
+    
+    .category-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .artwork-image {
+      padding: 2rem;
+      font-size: 3rem;
+      min-height: 200px;
+    }
+  }

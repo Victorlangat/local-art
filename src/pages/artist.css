@@ -1,0 +1,519 @@
+/* artist.css - Artists Page Styles */
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+    --artist-card-radius: 24px;
+    --avatar-size: 100px;
+  }
+  
+  /* ===== ARTISTS HERO ===== */
+  .artists-page {
+    background: var(--neutral-light);
+    min-height: 100vh;
+  }
+  
+  .artists-hero {
+    background: linear-gradient(135deg, #06d6a0 0%, #118ab2 100%);
+    color: white;
+    padding: 6rem 0 4rem;
+    text-align: center;
+  }
+  
+  .artists-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .artists-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+  
+  .artists-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* ===== ARTISTS CONTROLS ===== */
+  .artists-controls {
+    background: var(--neutral-white);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 2rem 0;
+    position: sticky;
+    top: 64px;
+    z-index: 40;
+  }
+  
+  .controls-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .search-group {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-wrapper {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--neutral-gray);
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 1.25rem 1.5rem 1.25rem 3.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    background: var(--neutral-white);
+    transition: var(--transition-smooth);
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+  }
+  
+  .search-input::placeholder {
+    color: var(--neutral-gray);
+  }
+  
+  .filter-group {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .category-filters {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .category-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    background: var(--neutral-white);
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+  }
+  
+  .category-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  
+  .category-btn.active {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+  }
+  
+  /* ===== ARTISTS GRID ===== */
+  .artists-section {
+    padding: 4rem 0;
+  }
+  
+  .artists-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  .artist-card {
+    background: var(--neutral-white);
+    border-radius: var(--artist-card-radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .artist-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-floating);
+  }
+  
+  .artist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .artist-avatar {
+    position: relative;
+    font-size: 4rem;
+    background: var(--gradient-card);
+    padding: 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+  }
+  
+  .featured-badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background: var(--accent-pink);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .artist-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--neutral-light);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+  }
+  
+  .rating-stars {
+    font-size: 1.1rem;
+  }
+  
+  .rating-value {
+    font-weight: 700;
+    color: var(--neutral-dark);
+  }
+  
+  .artist-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .artist-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--neutral-dark);
+    line-height: 1.2;
+  }
+  
+  .artist-specialty {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-purple);
+  }
+  
+  .artist-location {
+    color: var(--neutral-gray);
+    font-size: 1rem;
+  }
+  
+  .artist-stats {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .artist-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--neutral-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .artist-bio {
+    color: var(--neutral-gray);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .artist-categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .category-tag {
+    background: var(--blue-light);
+    color: var(--primary-blue);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  .artist-social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .social-handle {
+    font-size: 0.9rem;
+    color: var(--neutral-gray);
+  }
+  
+  .artist-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .portfolio-btn {
+    flex: 2;
+    padding: 1rem 1.5rem;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+  
+  .portfolio-btn:hover {
+    background: #3a56d4;
+    transform: translateY(-2px);
+  }
+  
+  .contact-btn {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+  
+  .contact-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+  }
+  
+  .follow-btn {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: var(--accent-teal);
+    color: var(--neutral-dark);
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+  
+  .follow-btn:hover {
+    background: #05c290;
+    transform: translateY(-2px);
+  }
+  
+  /* ===== EMPTY STATE ===== */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    grid-column: 1 / -1;
+  }
+  
+  .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+  }
+  
+  .empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--neutral-dark);
+    margin-bottom: 1rem;
+  }
+  
+  .empty-state p {
+    color: var(--neutral-gray);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* ===== JOIN COMMUNITY ===== */
+  .join-community {
+    background: linear-gradient(135deg, #7209b7 0%, #4361ee 100%);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+  }
+  
+  .community-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .community-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+  
+  .community-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+  
+  .community-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .benefit-icon {
+    font-size: 1.5rem;
+  }
+  
+  .join-btn {
+    background: var(--accent-yellow);
+    color: var(--neutral-dark);
+    border: none;
+    padding: 1.25rem 3rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .join-btn:hover {
+    background: #ffc53d;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-floating);
+  }
+  
+  /* ===== RESPONSIVE DESIGN ===== */
+  @media (max-width: 968px) {
+    .artists-grid {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+    
+    .artist-actions {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .artists-title {
+      font-size: 2.5rem;
+    }
+    
+    .artists-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .artist-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .artist-stats {
+      justify-content: center;
+    }
+    
+    .community-benefits {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .artists-hero {
+      padding: 4rem 0 3rem;
+    }
+    
+    .artists-title {
+      font-size: 2rem;
+    }
+    
+    .artist-card {
+      padding: 2rem;
+    }
+    
+    .artist-avatar {
+      width: 80px;
+      height: 80px;
+      font-size: 3rem;
+    }
+    
+    .search-input {
+      font-size: 1rem;
+      padding: 1rem 1rem 1rem 3rem;
+    }
+  }
+  
