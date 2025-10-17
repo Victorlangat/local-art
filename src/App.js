@@ -6,30 +6,26 @@ import { Artists } from './pages/artist';
 import './App.css';
 
 function App() {
-  const [cartItems, setCartItems] = useState(3); // Example cart count
-  const [currentPage, setCurrentPage] = useState('home'); // 'home', 'gallery', or 'artists'
+  const [cartItems, setCartItems] = useState(3);
+  const [currentPage, setCurrentPage] = useState('home');
 
   const handleCartClick = () => {
     alert(`🛒 Cart clicked! You have ${cartItems} items in your cart.`);
-    // In real app, this would open cart modal/sidebar
   };
 
   const handleExploreClick = () => {
     if (currentPage === 'home') {
-      // Scroll to gallery section on home page
       const gallerySection = document.getElementById('gallery');
       if (gallerySection) {
         gallerySection.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // If already on gallery or artists page, just show a message
       alert("🎨 You're already exploring our collection!");
     }
   };
 
   const handleHomeClick = () => {
     setCurrentPage('home');
-    // Scroll to top when switching pages
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -50,10 +46,8 @@ function App() {
 
   const handleViewDetails = (artId) => {
     alert(`🔍 Viewing details for artwork #${artId}`);
-    // In real app, this would navigate to detail page or open modal
   };
 
-  // Navigation handler for header
   const handleHeaderNavigation = (sectionId) => {
     switch (sectionId) {
       case 'home':
@@ -67,13 +61,11 @@ function App() {
         break;
       case 'mission':
         if (currentPage === 'home') {
-          // Scroll to mission section on home page
           const missionSection = document.getElementById('mission');
           if (missionSection) {
             missionSection.scrollIntoView({ behavior: 'smooth' });
           }
         } else {
-          // If on another page, switch to home first then scroll
           handleHomeClick();
           setTimeout(() => {
             const missionSection = document.getElementById('mission');
@@ -88,41 +80,19 @@ function App() {
     }
   };
 
-  // Render current page content
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'home':
-        return (
-          <Home 
-            onAddToCart={handleAddToCart}
-            onViewDetails={handleViewDetails}
-          />
-        );
+        return <Home />;
       case 'gallery':
-        return (
-          <Gallery 
-            onAddToCart={handleAddToCart}
-            onViewDetails={handleViewDetails}
-          />
-        );
+        return <Gallery />;
       case 'artists':
-        return (
-          <Artists 
-            onAddToCart={handleAddToCart}
-            onViewDetails={handleViewDetails}
-          />
-        );
+        return <Artists />;
       default:
-        return (
-          <Home 
-            onAddToCart={handleAddToCart}
-            onViewDetails={handleViewDetails}
-          />
-        );
+        return <Home />;
     }
   };
 
-  // Get current page title for footer
   const getCurrentPageTitle = () => {
     switch (currentPage) {
       case 'home': return 'Home';
@@ -134,7 +104,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* Header with navigation */}
       <Header 
         cartItemCount={cartItems}
         onCartClick={handleCartClick}
@@ -142,12 +111,10 @@ function App() {
         onNavigation={handleHeaderNavigation}
       />
 
-      {/* Main content - Dynamic page rendering */}
       <main className="main-content">
         {renderCurrentPage()}
       </main>
 
-      {/* Footer */}
       <footer className="app-footer">
         <div className="footer-container">
           <div className="footer-content">
