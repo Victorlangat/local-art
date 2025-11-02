@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import "./gallery.css";
 
-export function Gallery() {
+
+export function Gallery({onViewDetails}) {
+
+ 
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('newest');
 
@@ -147,7 +150,7 @@ export function Gallery() {
   };
 
   const handleQuickView = (artwork) => {
-    alert(`👁️ Quick View: ${artwork.title}\nArtist: ${artwork.artist}\nCategory: ${artwork.category}\nPrice: $${artwork.price}`);
+    alert(`👁️ Quick View: ${artwork.title}\nArtist: ${artwork.artist}\nPrice: $${artwork.price}`);
   };
 
   return (
@@ -230,18 +233,18 @@ export function Gallery() {
                   <div className="artwork-footer">
                     <div className="artwork-price">${artwork.price}</div>
                     <div className="artwork-actions">
-                      <button 
-                        className="view-details-btn"
-                        onClick={() => handleViewDetails(artwork)}
-                      >
-                        View Details
-                      </button>
-                      <button 
-                        className="add-to-cart-btn"
-                        onClick={() => handleAddToCart(artwork.id)}
-                      >
-                        Add to Cart
-                      </button>
+                    <button 
+                      className="view-details-btn"
+                      onClick={() => onViewDetails(artwork.id)}
+                    >
+                      View Details
+                    </button>
+                    <button 
+                      className="add-to-cart-btn"
+                      onClick={() => handleAddToCart(artwork.id)}
+                    >
+                      Add to Cart
+                    </button>
                     </div>
                   </div>
                 </div>

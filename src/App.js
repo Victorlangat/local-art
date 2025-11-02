@@ -3,9 +3,12 @@ import { Header } from './components/header';
 import { Home } from './pages/home';
 import { Gallery } from './pages/gallery';
 import { Artists } from './pages/artist';
+import { ArtworkDetail } from './pages/artworkdetail';
+import { Checkout } from './pages/checkout';
 import './App.css';
 
 function App() {
+  const [currentArtworkId, setCurrentArtworkId] = useState(null);
   const [cartItems, setCartItems] = useState(3);
   const [currentPage, setCurrentPage] = useState('home');
 
@@ -39,13 +42,33 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleAddToCart = (artId) => {
-    setCartItems(prev => prev + 1);
-    alert(`🎨 Added artwork #${artId} to cart! Total items: ${cartItems + 1}`);
+  const handleViewDetails = (artId) => {
+    setCurrentArtworkId(artId);
+    setCurrentPage('artwork-detail');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleViewDetails = (artId) => {
-    alert(`🔍 Viewing details for artwork #${artId}`);
+  const handleBackToGallery = () => {
+    setCurrentPage('gallery');
+    setCurrentArtworkId(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // FIXED: Added missing closing brace and fixed typo
+  const handleNavigateToCheckout = (orderData) => {
+    setCurrentPage('checkout');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }; // FIXED: Added missing closing brace
+
+  const getCurrentPageTitle = () => {
+    switch (currentPage) {
+      case 'home': return 'Home';
+      case 'gallery': return 'Gallery';
+      case 'artists': return 'Artists';
+      case 'artwork-detail': return 'ArtworkDetails';
+      case 'checkout': return 'Checkout'; // FIXED: Typo - changed 'çheckout' to 'checkout'
+      default: return 'Home';
+    }
   };
 
   const handleHeaderNavigation = (sectionId) => {
@@ -58,6 +81,10 @@ function App() {
         break;
       case 'artists':
         handleArtistsClick();
+        break;
+      case 'checkout':
+        setCurrentPage('checkout');
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // FIXED: Typo - 'behaviour' to 'behavior'
         break;
       case 'mission':
         if (currentPage === 'home') {
@@ -85,20 +112,19 @@ function App() {
       case 'home':
         return <Home />;
       case 'gallery':
-        return <Gallery />;
+        return <Gallery onViewDetails={handleViewDetails} />;
       case 'artists':
         return <Artists />;
+      case 'artwork-detail':
+        return <ArtworkDetail 
+                 artworkId={currentArtworkId}
+                 onBack={handleBackToGallery}
+                 onNavigateToCheckout={handleNavigateToCheckout}
+               />;
+      case 'checkout': // FIXED: Typo - changed 'çheckout' to 'checkout'
+        return <Checkout />;
       default:
         return <Home />;
-    }
-  };
-
-  const getCurrentPageTitle = () => {
-    switch (currentPage) {
-      case 'home': return 'Home';
-      case 'gallery': return 'Gallery';
-      case 'artists': return 'Artists';
-      default: return 'Home';
     }
   };
 
@@ -109,6 +135,7 @@ function App() {
         onCartClick={handleCartClick}
         onExploreClick={handleExploreClick}
         onNavigation={handleHeaderNavigation}
+        // FIXED: Removed onBuyNow prop since handleBuyNow doesn't exist
       />
 
       <main className="main-content">

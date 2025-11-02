@@ -1,0 +1,646 @@
+/* ArtworkDetail.css */
+.artwork-detail-page {
+  background: var(--neutral-light);
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 2rem 2rem 1rem;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-link {
+  background: none;
+  border: none;
+  color: var(--primary-blue);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.breadcrumb-link:hover {
+  color: var(--primary-purple);
+}
+
+.breadcrumb-separator {
+  color: var(--neutral-gray);
+}
+
+.breadcrumb-current {
+  color: var(--neutral-dark);
+  font-weight: 600;
+}
+
+/* Main Container */
+.artwork-detail-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Image Gallery */
+.artwork-gallery {
+  position: sticky;
+  top: 2rem;
+}
+
+.main-image {
+  position: relative;
+  background: var(--gradient-card);
+  border-radius: 24px;
+  padding: 4rem;
+  text-align: center;
+  font-size: 8rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.image-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.sold-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sold-badge {
+  background: var(--accent-pink);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.image-thumbnails {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.thumbnail {
+  background: var(--neutral-white);
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: var(--primary-blue);
+  transform: scale(1.05);
+}
+
+/* Artwork Info */
+.artwork-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.artwork-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.artwork-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--neutral-dark);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.artwork-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  background: var(--neutral-white);
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-size: 1.2rem;
+}
+
+.icon-btn:hover {
+  border-color: var(--primary-blue);
+  background: var(--blue-light);
+}
+
+.artist-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.by-text {
+  color: var(--neutral-gray);
+}
+
+.artist-link {
+  background: none;
+  border: none;
+  color: var(--primary-purple);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.artist-link:hover {
+  color: var(--primary-blue);
+}
+
+.rating {
+  background: var(--neutral-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.artwork-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.category-tag,
+.medium-tag {
+  background: var(--blue-light);
+  color: var(--primary-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.original-badge {
+  background: var(--accent-teal);
+  color: var(--neutral-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.artwork-price-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent-pink);
+}
+
+.stock-info {
+  background: var(--green-light);
+  color: var(--green-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.artwork-description {
+  line-height: 1.7;
+  color: var(--neutral-gray);
+}
+
+.detailed-description {
+  margin-top: 1rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Details Grid */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--neutral-white);
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: var(--neutral-gray);
+  font-weight: 600;
+}
+
+.detail-value {
+  font-weight: 600;
+  color: var(--neutral-dark);
+}
+
+/* Tags */
+.artwork-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--neutral-light);
+  color: var(--neutral-gray);
+  padding: 0.4rem 0.8rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+}
+
+/* Purchase Section */
+.purchase-section {
+  background: var(--neutral-white);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quantity-selector label {
+  font-weight: 600;
+  color: var(--neutral-dark);
+}
+
+.quantity-select {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  background: var(--neutral-white);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.purchase-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-cart {
+  flex: 1;
+  padding: 1.25rem 2rem;
+  background: var(--accent-teal);
+  color: var(--neutral-dark);
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-cart:hover {
+  background: #05c290;
+  transform: translateY(-2px);
+}
+
+.btn-buy {
+  flex: 1;
+  padding: 1.25rem 2rem;
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-buy:hover {
+  background: #3a56d4;
+  transform: translateY(-2px);
+}
+
+.btn-contact {
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-contact:hover {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.sold-message {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--neutral-white);
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Artist Section */
+.artist-section {
+  margin-top: 4rem;
+  padding: 4rem 0;
+  background: var(--neutral-white);
+}
+
+.section-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.artist-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.artist-card {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: var(--neutral-light);
+  padding: 3rem;
+  border-radius: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.artist-avatar {
+  font-size: 4rem;
+  background: var(--gradient-card);
+  padding: 2rem;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.artist-details {
+  flex: 1;
+}
+
+.artist-details h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.artist-location {
+  color: var(--neutral-gray);
+  margin-bottom: 0.5rem;
+}
+
+.artist-stats {
+  color: var(--neutral-gray);
+  margin-bottom: 1rem;
+}
+
+.artist-bio {
+  line-height: 1.6;
+  color: var(--neutral-gray);
+  margin-bottom: 1.5rem;
+}
+
+.artist-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-outline {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline:hover {
+  background: var(--primary-blue);
+  color: white;
+}
+
+/* Similar Artworks */
+.similar-artworks {
+  padding: 4rem 0;
+}
+
+.similar-artworks h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.similar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.similar-card {
+  background: var(--neutral-white);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.similar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+.similar-image {
+  font-size: 3rem;
+  background: var(--gradient-card);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.similar-card h4 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.similar-card p {
+  color: var(--neutral-gray);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.similar-card .price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-pink);
+}
+
+/* Loading and Error States */
+.loading-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.error-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--neutral-dark);
+}
+
+.error-container p {
+  color: var(--neutral-gray);
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .artwork-detail-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .artwork-gallery {
+    position: static;
+  }
+  
+  .main-image {
+    font-size: 6rem;
+    padding: 3rem;
+  }
+  
+  .artwork-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .purchase-buttons {
+    flex-direction: column;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .artist-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .artist-actions {
+    justify-content: center;
+  }
+  
+  .artwork-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .artwork-actions {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .artwork-detail-container {
+    padding: 0 1rem;
+  }
+  
+  .breadcrumb {
+    padding: 1rem 1rem 0.5rem;
+  }
+  
+  .main-image {
+    font-size: 4rem;
+    padding: 2rem;
+  }
+  
+  .artwork-title {
+    font-size: 1.75rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+  }
+  
+  .purchase-section {
+    padding: 1.5rem;
+  }
+}
